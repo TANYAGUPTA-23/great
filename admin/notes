@@ -1,0 +1,14 @@
+Routes → Wrapper for all route definitions; decides which page to render based on the URL.
+
+Route → Defines a specific path and the component to display for that path.
+
+ToastContainer → Displays toast notifications triggered anywhere in the app.
+
+Alternative Ways if Token is Not in Header
+Option 1: Store Token in Cookies
+Store token as an HTTP-only cookie on login.
+The browser will automatically send it with every request.
+
+Option 2: Store in Local Storage & Add Interceptor
+Save token in localStorage.
+Use Axios interceptor to attach it automatically to every request:

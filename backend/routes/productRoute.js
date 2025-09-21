@@ -3,7 +3,7 @@ import { listProducts, addProduct, removeProduct, singleProduct } from '../contr
 import upload from "../middleware/multer.js";
 import adminAuth from "../middleware/adminAuth.js";
 
-const productRouter = express.Router();
+const productRouter = express.Router(); //Creates a new router instance to handle only product-related endpoints.
 
 productRouter.post(
   '/add', adminAuth , 

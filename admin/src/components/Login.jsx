@@ -11,7 +11,7 @@ const Login = ({setToken}) => {
             e.preventDefault();
             const response = await axios.post(backendUrl + 'api/user/admin', {email, password})
             if(response.data.success){
-                setToken(response.data.token);
+                setToken(response.data.token); // Calls the function passed from the parent as a prop to store the token.
             }
             else{
                 toast.error(response.data.message)

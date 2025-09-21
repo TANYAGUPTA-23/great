@@ -88,7 +88,7 @@ const Orders = ({ token }) => {
               <p className="text-sm sm:text-[15px]">Items: {order.items.length}</p>
               <p className="mt-3">Method: {order.paymentMethod}</p>
               <p>Payment: {order.payment}</p>
-              <p>Date: {new Date(order.date).toLocaleDateString()}</p>
+              <p>Date: {new Date(order.date).toLocaleDateString()}</p> {/*It takes the order.date value → turns it into a Date object → formats it according to your system's locale → and displays it in a paragraph. */}
             </div>
             <p className="text-sm sm:text-[15px]">
               {currency}

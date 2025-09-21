@@ -15,7 +15,7 @@ const Contact = () => {
           <p className='font-semibold text-xl text-gray-600'>Our Store</p>
           <p className='text-gray-500'>location <br />Agra</p>
           <p className='text-gray-500'>mobile: () <br />email : misstanyagupta23@gmail.com</p>
-          <p className='font-semibold text-xl text-gray-600'>Careers at foreever</p>
+          {/* <p className='font-semibold text-xl text-gray-600'>Careers at foreever</p> */}
           <p className='text-gray-500'>learn more</p>
           <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'> explore</button>
         </div>

@@ -54,8 +54,8 @@ const PlaceOrder = () => {
       },
     };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
+    const rzp = new window.Razorpay(options); //Creates a new Razorpay payment object using the options you defined (amount, order ID, handler, etc.).
+    rzp.open(); //Opens the Razorpay checkout modal on the screen.
   };
 
   const onSubmitHandler = async (event) => {
@@ -97,7 +97,7 @@ const PlaceOrder = () => {
           const responseStripe = await axios.post(`${backendUrl}/api/order/stripe`, orderData, { headers: { token } });
           if (responseStripe.data.success) {
             const { session_url } = responseStripe.data;
-            window.location.replace(session_url);
+            window.location.replace(session_url); //Redirects the user to Stripe’s payment page
           } else {
             toast.error(responseStripe.data.message);
           }

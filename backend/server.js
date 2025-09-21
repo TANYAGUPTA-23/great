@@ -1,32 +1,3 @@
-// import express from 'express'
-// import cors from 'cors'
-// import 'dotenv/config'
-// import connectDB from './config/mongodb.js'
-// import connectCloudinary from './config/cloudinary.js'
-// import userRouter from './routes/userRoute.js'
-// import productRouter from './routes/productRoute.js'
-
-// const app = express()
-// const port = process.env.PORT || 4000
-// connectDB()
-// connectCloudinary()
-
-// // middleware
-// app.use(express.json())
-// app.use(cors())
-
-
-// // api endpoints
-// app.use('/api/user' , userRouter)
-// app.use('/api/product' , productRouter)
-
-// app.get('/' , (req , res) => {
-//     res.send("API WORKING")
-// })
-
-// app.listen(port , () => console.log("server started at :" + port))
-
-
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config' 
@@ -38,13 +9,14 @@ import cartRouter from './routes/cartRoute.js'
 import orderRouter from './routes/orderRoute.js'
 
 //App config
-const app = express()
+const app = express() //Creates your server instance.
 const port = process.env.PORT || 4000
 connectDB();
 connectCloudinary();
+
 // middlewares
-app.use(express.json())
-app.use(cors())
+app.use(express.json())  //Allows server to read JSON request bodies
+app.use(cors())  //Enables Cross-Origin Resource Sharing so your frontend (React, etc.) can call your backend without being blocked by the browser.
 
 // api endpoints
 app.use('/api/user', userRouter);
@@ -52,7 +24,8 @@ app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 app.get('/', (req, res) => {
-    res.send("API working")
+    res.send("API working")  //endpoint to check if your backend is running
 })
 
+//Start the Server
 app.listen(port, ()=> console.log('Server started on port: ' + port));

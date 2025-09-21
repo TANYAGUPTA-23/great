@@ -1,0 +1,113 @@
+1. React & Core Concepts
+
+* react – Builds the user interface using components.
+* react-dom – Renders React components into the browser’s DOM.
+* props – In React, props are used to send data from a parent to a child component. They are read-only, so the child can use them but not modify them.
+* props.children – Special prop in React that represents the content placed between a component’s opening and closing tags, making components flexible and reusable.
+* createContext – Part of React’s Context API; lets you share data between components without passing props manually at every level.
+* useEffect – A React hook for running side effects, like fetching data, updating the DOM, or setting up timers when a component mounts, updates, or unmounts. Runs only once when the component first loads (\[] dependency).
+* useState – A React hook for adding and managing state in functional components.
+* useRef – Access DOM elements or persist values across renders without causing re-renders.
+* React.StrictMode – Helps find potential problems in an app during development.
+* Conditional rendering – Using &&, ternary ? : operator, or if statements inside JSX.
+* Lists & keys – Use .map() to render arrays; key prop helps React identify elements.
+
+2. React Router & Navigation
+
+* react-router-dom – Handles navigation between pages without reloading.
+* useNavigate – From React Router DOM; allows programmatic navigation between routes/pages in the app.
+* useLocation - is a React Router hook that lets you access the current URL information in your app.
+* useSearchParams is a React Router hook used to read and manipulate the query string (the part of a URL after ?).
+* Link : Just for navigation. When you want to navigate to a route without any special styling for the active page. Clicking a Link changes the URL and loads the component for that route without reloading the page.
+* NavLink : Navigation + automatic “active” styling when the link matches the current URL. Perfect for menus, sidebars, or tabs where you want to highlight the active page. When the link is part of navigation UI and you want to highlight the current page.
+* BrowserRouter comes from the react-router-dom library, and its main job is to enable routing in your React application.It allows you to switch between different pages/components without refreshing the entire page.
+
+
+3. Forms & Events
+
+* event.preventDefault() : is a method in JavaScript that prevents the default action of an event from happening.
+
+  * In a form submission: By default, submitting a form reloads the page. Using event.preventDefault() stops that reload.
+  * In an <a> tag click: By default, clicking an anchor navigates to another page. Using this method can stop the navigation and let you handle the click in JavaScript.
+* event handler props in React:
+
+  * onSubmit : You are submitting a form and want to gather values without refreshing
+  * onClick : You just want to react to a click event on any element
+  * onChange = "Run this function whenever the value changes." whenever the value of a form element changes — like an <input>, <textarea>, or <select>.
+
+4. State & Data Handling
+
+* localStorage – Browser storage that keeps key-value data even after refreshing or closing the browser. Useful for things like saving tokens or user preferences.
+* sessionStorage – Temporary storage cleared when the browser tab closes.
+* JSON.stringify – Turns a JavaScript object/array into a JSON string, often before saving it in localStorage or sending it to a server.
+* JSON.parse – Turns a JSON string back into a JavaScript object/array, often after retrieving it from storage or an API.
+* structuredClone – Creates a deep copy of an object or array, so changes to the copy won’t affect the original.
+* Shallow Copy – Copies only the top-level properties of an object/array. If the original has nested objects, the copy will still reference the same nested objects, so changes inside them affect both. Example: Using {...obj} or Array.slice() in JavaScript creates a shallow copy.
+* Deep Copy – Copies everything, including all nested objects/arrays, so the copy is completely independent. Changes in the copy do not affect the original. Example: Using structuredClone(obj) or JSON.parse(JSON.stringify(obj)) (with limitations) creates a deep copy.
+* async/await – Allows waiting for asynchronous operations instead of using .then().
+* Promise – Represents a value that may be available now, later, or never.
+* try/catch – Handles errors in JavaScript (especially useful with async/await).
+
+5. Arrays & Objects
+
+* Array.isArray(value) is a JavaScript method that returns true if the given value is an array, and false otherwise.
+* map() : Transform each element of an array and return a new array of the same length. Doesn’t modify the original array. Runs the callback function for every element.
+* filter() : Keep only elements that pass a condition and return a new array. The result array can be shorter or equal in length to the original. Doesn’t change the original array.
+* slice() : Extract a portion of an array without modifying the original. Takes two arguments: slice(start, end) start → index where to start (inclusive).
+* Object.keys(obj) returns an array of all the property names (keys) in an object.
+  const cartData = {
+  "item1": { S: 2, M: 1 },
+  "item2": { L: 3 }
+  };
+  console.log(Object.keys(cartData\["item1"]));
+  // Output: \["S", "M"]
+* Object.values(obj) – Returns all property values in an array.
+* Spread operator ... – Shallow copy or merge arrays/objects.
+
+6. Tailwind & Styling
+
+* tailwindcss – Utility-first CSS framework for quick and responsive styling.
+* @tailwindcss/vite – Connects Tailwind CSS with Vite for instant style updates during development.
+
+7. HTTP & API
+
+* axios – Makes API calls to send/receive data from the server.
+* await ensures the code waits until the data is received.
+* fetch – Native browser API to make HTTP requests.
+
+8. Notifications
+
+* react-toastify / toast – From React Toastify; used to show quick, styled popup notifications (success, error, info) to users.
+* toastify – JavaScript toast notification library (can be used outside React).
+
+
+9. Module Exports
+
+* Default Export : One per file (only one thing can be default exported from a module). When importing, you can name it anything (name is not tied to the original variable name).
+  // shop.js
+  export default ShopContextProvider;
+  // another file
+  import ShopProvider from './shop'; // name can be anything
+* Named Export : Can have multiple named exports per file. When importing, must match the exact name (case-sensitive).
+  // utils.js
+  export const add = (a, b) => a + b;
+  export const multiply = (a, b) => a \* b;
+  // another file
+  import { add, multiply } from './utils';
+  import { add as sum } from './utils';  // You can rename while importing
+
+10. HTML / Basic JS Concepts
+
+* <a> tag – Standard HTML anchor tag for navigation; React Router Link replaces it for SPA routing.
+* defaultValue vs value – In input fields, defaultValue sets initial value (uncontrolled), value sets controlled value.
+* typeof – Returns the type of a variable.
+* instanceof – Checks if an object is an instance of a particular class or constructor.
+* event.target – The element that triggered the event; commonly used in form inputs.
+* min/max attributes – Used in input type="number" to restrict value.
+* required – HTML attribute to make an input mandatory.
+
+
+<> ... </>
+Lets you group multiple elements without adding an extra <div> or other wrapper to the DOM.
+Prevents unnecessary nesting in HTML output.
+

@@ -35,6 +35,8 @@ const addToCart = async (req, res) => {
     }
 }
 
+//authenticates the user → validates request → fetches the user's cart → removes the specified product size → updates MongoDB → sends updated cart back to the frontend.
+
 export const removeFromCart = async (req, res) => {
   try {
     console.log('removeFromCart called with:', req.body);
@@ -48,7 +50,7 @@ export const removeFromCart = async (req, res) => {
       return res.status(400).json({ success: false, message: "Missing itemId or size" });
     }
 
-    const user = await userModel.findById(userId); // ✅ FIXED HERE
+    const user = await userModel.findById(userId); // FIXED HERE
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });
     }
@@ -60,9 +62,9 @@ export const removeFromCart = async (req, res) => {
     const cartData = user.cartData;
 
     if (cartData[itemId] && cartData[itemId][size]) {
-      delete cartData[itemId][size];
+      delete cartData[itemId][size];  // Remove the specific size
       if (Object.keys(cartData[itemId]).length === 0) {
-        delete cartData[itemId];
+        delete cartData[itemId]; // If no sizes left, remove the item entirely
       }
 
       await userModel.findByIdAndUpdate(userId, { cartData }); // save back the updated cart

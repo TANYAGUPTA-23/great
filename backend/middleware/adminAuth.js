@@ -1,27 +1,3 @@
-// import jwt from 'jsonwebtoken'
-
-// const adminAuth = async (req, res, next) => {
-//   try {
-//     const token = req.headers.token
-//     if (!token) {
-//       return res.json({ success: false, message: "Not Authorized" })
-//     }
-
-//     const decoded = jwt.verify(token, process.env.JWT_SECRET)
-
-//     if (decoded.email !== process.env.ADMIN_EMAIL) {
-//       return res.json({ success: false, message: "Not Authorized" })
-//     }
-
-//     next()
-//   } catch (error) {
-//     console.log(error)
-//     res.json({ success: false, message: error.message })
-//   }
-// }
-
-// export default adminAuth
-
 
 import jwt from 'jsonwebtoken'
 
@@ -44,3 +20,5 @@ const adminAuth = async (req, res, next) => {
 }
 
 export default adminAuth
+
+//there can only be one admin bcz it is checking if the decoded token is exactly equal

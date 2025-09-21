@@ -39,7 +39,7 @@ const List = () => {
       const response = await axios.post(
         backendUrl + 'api/product/remove',
         { id },
-        { headers: { token } }  // ✅ Pass token properly
+        { headers: { token } }  //  Pass token properly
       );
 
 

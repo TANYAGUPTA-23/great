@@ -6,16 +6,22 @@ import { ShopContext } from '../context/ShopContext';
 const NavBar = () => {
     const [visible, setVisible] = useState(false);
     const {setShowSearch, getCartCount, navigate, token, setToken, setCartItems} = useContext(ShopContext);
+            // setShowSearch,  : function to toggle search bar visibility
+            // getCartCount,   : function to get number of items in cart
+            // navigate,       : function for programmatic navigation
+            // token,          : authentication token (if logged in)
+            // setToken,       : function to update token
+            // setCartItems    : function to update the cart items
     const logout = () => {
       navigate('/login')
-      localStorage.removeItem('token')
+      localStorage.removeItem('token') //Clears token in localStorage + context.
       setToken('')
       setCartItems({})
     }
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       {/* Logo */}
-      <Link to='/'><img src={assets.logo} className="w-36" alt="Logo" /></Link>
+      {/* <Link to='/'><img src={assets.logo} className="w-36" alt="Logo" /></Link> */}
 
       {/* Navigation Links */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -48,7 +54,7 @@ const NavBar = () => {
       {/* Profile and Cart */}
       <div className="flex items-center gap-6">
         <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="Search" />
-
+        
         <div className="group relative">
           <img onClick={() => token ? null : navigate('/login')} className="w-5 cursor-pointer" src={assets.profile_icon} alt="Profile" />
           {token && <div className="hidden group-hover:block absolute right-0 pt-4 bg-white shadow-md rounded">
